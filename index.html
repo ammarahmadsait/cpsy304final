@@ -1,128 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WIT College – Student Registration</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #00264d;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #004080;
-            overflow: hidden;
-        }
-
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            background-color: #0059b3;
-        }
-
-        .hero {
-            background-color: #e6f0ff;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            margin: 0;
-            font-size: 40px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #333;
-        }
-
-        .container {
-            margin: 30px auto;
-            width: 90%;
-            max-width: 500px;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        input[type="text"],
-        input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin: 6px 0 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        input[type="submit"] {
-            background-color: #004080;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0059b3;
-        }
-
-        footer {
-            background-color: #00264d;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 40px;
-        }
-    </style>
+    <title>Student Registration</title>
 </head>
 <body>
-
-    <header>
-        <h1>WIT College</h1>
-        <p>Western Institute of Technology – Empowering Future Innovators</p>
-    </header>
-
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Programs</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
-
-    <div class="hero">
-        <h1>Welcome to WIT College</h1>
-        <p>Register now and take the first step toward your tech career.</p>
-    </div>
-
-    <div class="container">
-        <h2>Student Registration</h2>
-        <form method="POST" action="index.php">
-            Full Name: <input type="text" name="fullname" required><br>
-            Email: <input type="email" name="email" required><br>
-            <input type="submit" value="Register">
-        </form>
-    </div>
-
-    <footer>
-        &copy; 2025 WIT College | All Rights Reserved
-    </footer>
-
+    <h2>Register a Student</h2>
+    <form method="POST" action="submit.php">
+        Full Name: <input type="text" name="fullname" required><br><br>
+        Email: <input type="email" name="email" required><br><br>
+        <input type="submit" value="Register">
+    </form>
 </body>
 </html>
