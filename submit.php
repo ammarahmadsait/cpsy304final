@@ -1,14 +1,23 @@
 <?php
-// Load environment variables from Azure App Service Configuration
 $server = getenv("SQL_SERVER");
 $database = getenv("SQL_DATABASE");
-$username = getenv("SQL_USERNAME");
-$password = getenv("SQL_PASSWORD");
+
+// Get an access token from the Azure Instance Metadata Service
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("Metadata: true"));
+$response = curl_exec($ch);
+curl_close($ch);
+
+$token = json_decode($response)->access_token;
 
 try {
-    // Connect to Azure SQL Database using PDO
-    $conn = new PDO("sqlsrv:server = $server; Database = $database", $username, $password);
+    $conn = new PDO("sqlsrv:server=$server;Database=$database", "", "");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Attach token
+    $conn->setAttribute(PDO::SQLSRV_ATTR_ACCESS_TOKEN, $token);
 
     // Get form values
     $fullname = $_POST['fullname'];
